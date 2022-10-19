@@ -27,6 +27,7 @@ Misc variables:
 def is_armstrong_number(number: int) -> bool:
     """
     Returns True if 'number' is an Armstrong number and False otherwise.
+    The 'length' of the number will be consider as the order.
 
     Parameters:
         number (int):
@@ -40,8 +41,18 @@ def is_armstrong_number(number: int) -> bool:
         None
     """
 
-    pass
+    if number < 0:
+        return False
+
+    order = len(str(number))
+
+    numbers = [int(i) ** order for i in str(number)]
+
+    return sum(numbers) == number
 
 
 if __name__ == "__main__":
     print(is_armstrong_number(number=123))
+    print(is_armstrong_number(number=407))
+    print(is_armstrong_number(number=153))
+    print(is_armstrong_number(number=100))
