@@ -56,7 +56,26 @@ class Duplicate:
         return list(set(output_list))
 
 
+def main(input_list: list[int]) -> None:
+    """
+    An easy implementation to the duplicates function
+    Takes an input list and prints duplicate items in the list.
+
+    Parameters:
+        input_list (list[int]):
+            The input list
+
+    Returns:
+        None
+
+    Raises:
+        None
+    """
+
+    print(Duplicate.get_duplicates(input_list=input_list))
+
+
 if __name__ == "__main__":
     test_li = [10, 2, 11, 2, -1, -1, -1, 10, 30]
 
-    print(Duplicate.get_duplicates(input_list=test_li))
+    main(input_list=test_li)
