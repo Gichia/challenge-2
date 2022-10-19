@@ -11,12 +11,14 @@ Classes:
 Functions:
 
     main(input_list):
-        recieves the input list and returns list with any duplicates
+        recieves the input list and prints list with any duplicates
 
 Misc variables:
 
     None
 """
+
+from typing import List
 
 class Duplicate:
     """
@@ -35,7 +37,7 @@ class Duplicate:
     """
 
     @classmethod
-    def get_duplicates(cls, input_list: list[int]) -> list[int]:
+    def get_duplicates(cls, input_list: List[int]) -> List[int]:
         """
         Returns a list of any duplicate items from the input list
 
@@ -56,7 +58,7 @@ class Duplicate:
         return list(set(output_list))
 
 
-def main(input_list: list[int]) -> None:
+def main(input_list: List[int]) -> None:
     """
     An easy implementation to the duplicates function
     Takes an input list and prints duplicate items in the list.
