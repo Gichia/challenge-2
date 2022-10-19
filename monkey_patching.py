@@ -22,6 +22,7 @@ class Employee:
     """
     Example Employee class with a predefined raise amount
     """
+    raise_amount = 1.2
 
     def __init__(self, first_name: str, last_name: str) -> None:
         """Initialize the class with provided variables"""
@@ -33,17 +34,21 @@ class Employee:
         """Returns the email from the defined names"""
         return f"{self.first_name.lower()}.{self.last_name.lower()}@company.com"
 
+    def apply_raise(self) -> None:
+        """Method to apply a raise to an employee's salary"""
+        self.salary = int(self.salary * self.raise_amount)
+
 
 def say_hello(self):
     """Method that returns hello"""
     return "Hello"
 
 
-# The first employee instance created will print the
-# correct employee email
+## The first employee instance created will print the
+## correct employee email
 emp1 = Employee(first_name="John", last_name="Doe")
 print(emp1.get_email())
-# Will print instead of 'john.doe@company.com'
+## Will print instead of 'john.doe@company.com'
 
 # *** MONKEY PATCH 1 ***
 #
@@ -54,7 +59,27 @@ print(emp1.get_email())
 #
 Employee.get_email = say_hello
 
-# After we have applied a monkey patch
+## After we have applied a monkey patch
 emp2 = Employee(first_name="Jane", last_name="Doe")
 print(emp2.get_email())
-# Will print "Hello" instead of 'jane.doe@company.com'
+## Will print "Hello" instead of 'jane.doe@company.com'
+
+
+
+# *** MONKEY PATCH 2 ***
+#
+# We can also change the class variable raise_amount
+# differently for each employee during execution
+#
+
+# Employee 1's Salary will be raised by the default raise amount
+print(emp1.salary)
+emp1.apply_raise()
+print(emp1.salary)
+
+# Employee 2's raise amount will be changed
+# hence the apply raise method result will be altered
+print(emp2.salary)
+emp2.raise_amount = 1.5
+emp2.apply_raise()
+print(emp2.salary)
