@@ -48,14 +48,14 @@ def say_hello(self):
 ## correct employee email
 emp1 = Employee(first_name="John", last_name="Doe")
 print(emp1.get_email())
-## Will print instead of 'john.doe@company.com'
+## Will print 'john.doe@company.com'
 
 # *** MONKEY PATCH 1 ***
 #
 # We completely replace the method to get user email
 # with a method that always returns a string 'Hello'
 # Any instance created after the line will be altered
-# as python is executes sequentially (line by line)
+# as python is executed sequentially (line by line)
 #
 Employee.get_email = say_hello
 
