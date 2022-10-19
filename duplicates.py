@@ -51,4 +51,12 @@ class Duplicate:
             None
         """
 
-        pass
+        output_list = [el for el in input_list if input_list.count(el) > 1]
+
+        return list(set(output_list))
+
+
+if __name__ == "__main__":
+    test_li = [10, 2, 11, 2, -1, -1, -1, 10, 30]
+
+    print(Duplicate.get_duplicates(input_list=test_li))
