@@ -14,12 +14,15 @@ Misc variables:
 
     None
 """
+import random
 
 from typing import List, Union
 
+
 def shuffle(input_list: List[Union[int, str]]):
     """
-    Recieves an input list and returns a shuffled version of it
+    Recieves an input list and returns a shuffled version of it.
+    The output will return a randomly shuffled version every execution time
 
     Parameters:
         input_list (list[int | str]):
@@ -33,4 +36,12 @@ def shuffle(input_list: List[Union[int, str]]):
         None
     """
 
-    pass
+    random.shuffle(input_list)
+
+    return input_list
+
+
+if __name__ == "__main__":
+    example_list = ["A", "D", 1, 100]
+
+    print(shuffle(input_list=example_list))
